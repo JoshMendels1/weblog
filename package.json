@@ -1,0 +1,16 @@
+{
+  "name": "simple-blog",
+  "version": "1.0.0",
+  "description": "A simple static blog built with 11ty",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "start": "eleventy --serve"
+  },
+  "keywords": ["blog", "11ty", "static"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}
