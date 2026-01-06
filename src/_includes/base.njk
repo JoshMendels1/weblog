@@ -3,23 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% if title %}{{ title }} - {% endif %}Josh Mendelsohn</title>
+  <title>{% if title %}{{ title }} - {% endif %}Josh Mendelsohn's Weblog</title>
   <link rel="stylesheet" href="/css/style.css">
   <meta name="description" content="{{ description or 'A simple blog about tech and ideas' }}">
 </head>
 <body>
   <header>
     <nav>
-      <a href="/" class="site-title">My Blog</a>
+      <a href="/" class="site-title">Josh Mendelsohn's Weblog</a>
     </nav>
   </header>
   
   <main>
     {{ content | safe }}
   </main>
-  
-  <footer>
-    <p>Built with <a href="https://www.11ty.dev/">11ty</a></p>
-  </footer>
 </body>
 </html>

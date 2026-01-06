@@ -4,17 +4,22 @@ title: Home
 ---
 
 <div class="home">
-  <h1>Recent Posts</h1>
-  
-  <ul class="post-list">
-    {%- for post in collections.posts -%}
-    <li class="post-item">
-      <time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
+  {%- set currentDate = "" -%}
+  {%- for post in collections.posts -%}
+    {%- set postDate = post.date | readableDate -%}
+    {%- if postDate != currentDate -%}
+      {%- set currentDate = postDate -%}
+      <h2 class="date-header">{{ postDate }}</h2>
+    {%- endif -%}
+    {%- if post.data.title -%}
+    <div class="post-item">
       <a href="{{ post.url }}">{{ post.data.title }}</a>
-      {% if post.data.description %}
-      <p class="post-description">{{ post.data.description }}</p>
-      {% endif %}
-    </li>
-    {%- endfor -%}
-  </ul>
+      <p class="post-excerpt">{{ post.templateContent | firstParagraph | safe }}</p>
+    </div>
+    {%- else -%}
+    <div class="post-item post-item--untitled">
+      <div class="post-content-inline">{{ post.templateContent | safe }}</div>
+    </div>
+    {%- endif -%}
+  {%- endfor -%}
 </div>

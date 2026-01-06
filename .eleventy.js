@@ -24,6 +24,13 @@ module.exports = function(eleventyConfig) {
     return new Date(dateObj).toISOString();
   });
 
+  // Extract first paragraph from HTML content
+  eleventyConfig.addFilter("firstParagraph", content => {
+    if (!content) return "";
+    const match = content.match(/<p>(.*?)<\/p>/s);
+    return match ? match[1] : "";
+  });
+
   return {
     dir: {
       input: "src",
